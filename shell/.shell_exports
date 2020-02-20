@@ -1,0 +1,8 @@
+#!/bin/env zsh
+
+# Make vim the default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Customise the prompt
+export PS1=$'%B%F{yellow}%n@%m%f%b:%B%F{blue}%~%f%b$ '

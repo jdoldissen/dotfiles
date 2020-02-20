@@ -1,0 +1,17 @@
+#!/bin/env zsh
+
+setopt AUTO_CD # just write the directory name to cd into it
+setopt NO_CASE_GLOB # case insensitive globbing
+setopt CORRECT # correct mistyped paths
+setopt emacs # emacs style command line editing
+setopt NO_LIST_BEEP # don't make annoying sounds for ambiguous ls matches
+
+# Powerful zsh completion configuration
+autoload -Uz compinit && compinit
+
+# case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+
+# partial completion suggestions
+zstyle ':completion:*' list-suffixes
+zstyle ':completion:*' expand prefix suffix

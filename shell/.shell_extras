@@ -1,0 +1,4 @@
+#!/bin/env zsh
+
+# Put any extras in here
+# To avoid having to stash this run git update-index --assume-unchanged .shell_extras

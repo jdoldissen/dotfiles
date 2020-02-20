@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+#################################################
+# Script to install packages I frequently use on a Linux machine
+#################################################
+
+set -e
+
+check_is_sudo() {
+    if [ "$EUID" -ne 0 ]; then
+        echo "Please run as root."
+        exit
+    fi
+}
+
+install_packages() {
+    apt update
+    apt -y upgrade
+    apt install -y    \
+        bc            \
+        coreutils     \
+        curl          \
+        dnsutils      \
+        findutils     \
+        git           \
+        grep          \
+        hostname      \
+        iproute2      \
+        less          \
+        lsof          \
+        make          \
+        net-tools     \
+        nmap          \
+        ssh           \
+        tree          \
+        tcpdump       \
+        unzip         \
+        vim           \
+        zip           \
+        openjdk-8-jdk \
+        zsh           \
+        --no-install-recommends
+
+    apt autoremove
+    apt autoclean
+    apt clean
+}
+
+main() {
+    check_is_sudo
+    install_packages
+}
+
+main
