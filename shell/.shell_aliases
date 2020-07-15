@@ -52,3 +52,6 @@ if uname | grep -qi linux; then
     alias pbcopy="xclip -selection clipboard"
     alias pbpaste="xclip -selection clipboard -o"
 fi
+
+# git aliases
+alias gitamend="git add -A && git commit --amend --no-edit && git push -f"
