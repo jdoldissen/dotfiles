@@ -44,9 +44,6 @@ alias privateip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -
 # get public ip address
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-# run a docker image with an interactive terminal
-alias dockertty="docker run --rm -it"
-
 # get pbcopy and pbpaste to work on linux
 if uname | grep -qi linux; then
     alias pbcopy="xclip -selection clipboard"
