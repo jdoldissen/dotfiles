@@ -6,3 +6,7 @@ export EDITOR="$VISUAL"
 
 # Customise the prompt
 export PS1=$'%B%F{yellow}%n@%m%f%b:%B%F{blue}%~%f%b$ '
+
+# History configuration
+export HISTSIZE=1000
+export HISTFILE=~/.zhistory

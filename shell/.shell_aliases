@@ -50,5 +50,16 @@ if uname | grep -qi linux; then
     alias pbpaste="xclip -selection clipboard -o"
 fi
 
+# start postgres locally on mac on default port
+alias startpost="pg_ctl -D /usr/local/var/postgres start"
+alias stoppost="pg_ctl -D /usr/local/var/postgres stop"
+
+# mvn aliases
+alias createMvnApp="mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart"
+alias createMvnWebApp="mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp"
+
+# Display complete history file in zsh
+alias history="history 1"
+
 # git aliases
 alias gitamend="git add -A && git commit --amend --no-edit && git push -f"
