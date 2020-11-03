@@ -4,6 +4,7 @@ setopt AUTO_CD # just write the directory name to cd into it
 setopt NO_CASE_GLOB # case insensitive globbing
 setopt CORRECT # correct mistyped paths
 setopt NO_LIST_BEEP # don't make annoying sounds for ambiguous ls matches
+setopt histignorespace # don't keep commands with a leading space in history
 
 # Use vim keybindings
 bindkey -v
