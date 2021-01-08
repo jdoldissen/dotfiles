@@ -1,22 +1,32 @@
 #!/bin/env zsh
 
-setopt AUTO_CD # just write the directory name to cd into it
-setopt NO_CASE_GLOB # case insensitive globbing
-setopt CORRECT # correct mistyped paths
-setopt NO_LIST_BEEP # don't make annoying sounds for ambiguous ls matches
-setopt histignorespace # don't keep commands with a leading space in history
+# general options
+setopt AUTO_CD
+setopt NO_CASE_GLOB
+setopt CORRECT
+setopt NO_LIST_BEEP
+setopt histignorespace
 
-# Use vim keybindings
+# use vim keybindings
 bindkey -v
 bindkey jk vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+bindkey -v '^?' backward-delete-char
 
-# Powerful zsh completion configuration
+# powerful zsh completion configuration
 autoload -Uz compinit && compinit
 
-# Case insensitive path-completion
+# case insensitive path-completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
-# Partial completion suggestions
+# partial completion suggestions
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
+
+# run-help makes accessing zsh man pages easier
+unalias run-help 2> /dev/null
+autoload run-help
+
+# see https://unix.stackexchange.com/questions/72086/ctrl-s-hangs-the-terminal-emulator
+# without this ctrl-s wasn't working in vim
+stty -ixon

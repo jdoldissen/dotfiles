@@ -1,18 +1,12 @@
 #!/bin/env zsh
 
-# copy file interactive
+# simple enchancements
 alias cp="cp -i"
-
-# move file interactive
 alias mv="mv -i"
-
-# make and print intermediate directories
 alias mkdir="mkdir -pv"
-
-# long list shortcut
 alias ll="ls -lah"
-
-# convenient navigation
+alias grep="grep --color=auto"
+alias c="clear"
 alias ...="../.."
 alias ....="../../.."
 
@@ -26,19 +20,13 @@ else # OS X `ls`
 fi
 alias ls="ls ${colorflag}"
 
-# on linux adding --color=auto is sometimes necessary
-alias grep="grep --color=auto"
-
 # copy public key to clipboard
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy"
-
-# clear shortcut
-alias c="clear"
 
 # list listening tcp ports
 alias serverports="sudo lsof -iTCP -sTCP:LISTEN -Pn"
 
-# get private ip address(es)
+# get private ip address
 alias privateip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
 # get public ip address
@@ -49,14 +37,6 @@ if uname | grep -qi linux; then
     alias pbcopy="xclip -selection clipboard"
     alias pbpaste="xclip -selection clipboard -o"
 fi
-
-# start postgres locally on mac on default port
-alias startpost="pg_ctl -D /usr/local/var/postgres start"
-alias stoppost="pg_ctl -D /usr/local/var/postgres stop"
-
-# mvn aliases
-alias createMvnApp="mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart"
-alias createMvnWebApp="mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp"
 
 # Display complete history file in zsh
 alias history="history 1"

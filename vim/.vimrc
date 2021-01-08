@@ -5,58 +5,43 @@ filetype plugin indent on
 syntax enable
 colorscheme desert
 
-" quick escape in insert mode
-inoremap jk <esc>
-
-" tab & indentation settings
+" tab & indentation
 set tabstop=4
 set shiftwidth=4 
 set softtabstop=4
 set expandtab
-set smarttab
 set autoindent
 
-" show line numbers
+" general appearance/functionality
 set number
-
-" underline current line
-set cursorline
-
-" search as characters are entered
-set incsearch
-
-" match braces when cursors hover
+set ruler
 set showmatch
-
-" allow navigation away from an edited buffer
-set hidden
-
-" mover vertically by visual lines
+set cursorline
+set incsearch
+set backspace=indent,eol,start
+inoremap jk <esc>
 nnoremap j gj
 nnoremap k gk
 
-" show status info
-set ruler
-
-" show the command typed
-set showcmd
-
-" make sure when you try to find a file, subdirectories are recursively checked
+" file find & tab completion
 set path+=**
-
-" command line completion on e.g. when trying to find files
 set wildmenu
 set wildmode=longest:full,full
+set wildignore=*/target*,*/node_modules/*,*/__pycache__/
 
-" buffer shortcuts
+" buffers
 nnoremap <space> :buffers<CR>:buffer<Space>
 nnoremap <silent> <C-l> :bnext<CR>
 nnoremap <silent> <C-h> :bprevious<CR>
-inoremap <silent> <C-l> <esc><C-l>
-inoremap <silent> <C-h> <esc><C-h>
+inoremap <silent> <C-l> <esc>:bnext<CR>
+inoremap <silent> <C-h> <esc>:bprevious<CR>
+set hidden
 
-" backspace functionality
-set backspace=indent,eol,start
+" splits
+set splitright
 
-" insert new line without entering insert mode
-nnoremap <CR> o<Esc>0
+" open help vertically
+cnoreabbrev h vert h
+
+" close netrw buffer when file is opened
+let g:netrw_fastbrowse = 0
